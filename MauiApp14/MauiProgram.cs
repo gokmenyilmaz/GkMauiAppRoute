@@ -23,6 +23,7 @@ namespace MauiApp14
 
 
             builder.Services.GkAddTransientWithShellRoute<PersonelListView, PersonelListVM>("PersonelListPage");
+            builder.Services.GkAddTransientWithShellRoute<PersonelEditView, PersonelEditVM>("PersonelEdit");
 
 
 

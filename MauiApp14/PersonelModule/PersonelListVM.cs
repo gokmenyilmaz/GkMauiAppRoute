@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MauiApp14.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +31,15 @@ namespace MauiApp14.PersonelModule
             Title= "Personel Listesi";
 
         }
+
+        [RelayCommand]
+        private async void SelectionChanged(Personel selectedPersonel)
+        {
+            await Shell.Current.GoToAsync("PersonelEdit?id=" + selectedPersonel.Id);
+
+        }
+
+
+
     }
 }
