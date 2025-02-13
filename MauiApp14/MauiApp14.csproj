@@ -67,6 +67,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="PersonelModule\Adres.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PersonelModule\PersonelEditView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
