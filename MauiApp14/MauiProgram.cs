@@ -27,6 +27,9 @@ namespace MauiApp14
 
 
 
+          //  builder.Services.GkAddSingletonWithShellRoute<PersonelListView, PersonelListVM>("PersonelListPage");
+
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

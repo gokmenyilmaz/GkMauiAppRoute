@@ -21,8 +21,12 @@ namespace MauiApp14.PersonelModule
         public string title;
         public PersonelListVM()
         {
+
+            Random random = new Random();
+            int rastgeleSayi = random.Next(1, 101);
+
             PersonelList = new List<Personel>();
-            PersonelList.Add(new Personel { Id = 1, Name = "Ali", Surname = "Yılmaz", Age = 25 });
+            PersonelList.Add(new Personel { Id = 1, Name = "Ali", Surname = "Yılmaz", Age = rastgeleSayi });
             PersonelList.Add(new Personel { Id = 2, Name = "Veli", Surname = "Kara", Age = 30 });
             PersonelList.Add(new Personel { Id = 3, Name = "Ayşe", Surname = "Beyaz", Age = 35 });
             PersonelList.Add(new Personel { Id = 4, Name = "Fatma", Surname = "Kara", Age = 40 });

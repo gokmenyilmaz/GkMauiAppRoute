@@ -29,5 +29,28 @@ namespace MauiApp14.Utils
             Routing.RegisterRoute(route, typeof(TPage));
             return services;
         }
+
+
+        public static IServiceCollection GkAddSingletonWithShellRoute<TPage, TViewModel>(
+          this IServiceCollection services,
+          string route
+      )
+          where TPage : ContentPage
+          where TViewModel : class
+        {
+            services.AddSingleton<TViewModel>();
+            services.AddSingleton<TPage>(sp =>
+            {
+                var page = ActivatorUtilities.CreateInstance<TPage>(sp);
+                if (page is ContentPage contentPage)
+                {
+                    contentPage.BindingContext = sp.GetRequiredService<TViewModel>();
+                }
+                return page;
+            });
+
+            Routing.RegisterRoute(route, typeof(TPage));
+            return services;
+        }
     }
 }
