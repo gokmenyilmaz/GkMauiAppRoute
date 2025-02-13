@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MauiApp14.PersonelModule
 {
-    public partial class PersonelListVM : ObservableObject
+    public partial class PersonelListVM : ObservableObject, IQueryAttributable
     {
 
         [ObservableProperty]
@@ -32,6 +32,10 @@ namespace MauiApp14.PersonelModule
 
         }
 
+
+
+
+    
         [RelayCommand]
         private async void SelectionChanged(Personel selectedPersonel)
         {
@@ -39,6 +43,32 @@ namespace MauiApp14.PersonelModule
 
         }
 
+
+        public void ApplyQueryAttributes(IDictionary<string, object> query)
+        {
+            if (query.ContainsKey("kaydet") && query["kaydet"] is Personel updatedPersonel)
+            {
+                UpdatePersonel(updatedPersonel);
+            }
+        }
+
+        private void UpdatePersonel(Personel updatedPersonel)
+        {
+            var existing = PersonelList.FirstOrDefault(p => p.Id == updatedPersonel.Id);
+            if (existing != null)
+            {
+                // Var olanı güncelle
+
+                existing.Name = updatedPersonel.Name;
+                existing.Surname = updatedPersonel.Surname;
+                existing.Age = updatedPersonel.Age;
+            }
+            else
+            {
+                // Listeye yeni ekle
+                PersonelList.Add(updatedPersonel);
+            }
+        }
 
 
     }

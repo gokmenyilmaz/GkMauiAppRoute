@@ -12,6 +12,10 @@
 
         <Label Text="{Binding Id}" />
 
+        <Entry Text="{Binding Name}" Placeholder="Name" />
+
+        <Button Text="Kaydet" Command="{Binding KaydetCommand}"/>
+
 
     </VerticalStackLayout>
 </ContentPage>
