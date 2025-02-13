@@ -6,14 +6,41 @@
     xmlns:local="clr-namespace:MauiApp14"
     xmlns:modules="clr-namespace:MauiApp14.PersonelModule"
     Title="MauiApp14"
-    Shell.FlyoutBehavior="Flyout">
+    >
 
-    <ShellContent
+
+    <TabBar>
+        <Tab Title="Cats">
+            <ShellContent
+                Title="Personel Liste"
+                ContentTemplate="{DataTemplate modules:PersonelListView}"
+                Route="PersonelListPage" />
+        </Tab>
+        <Tab Title="Dogs">
+            <ShellContent
+                Title="Adres"
+                ContentTemplate="{DataTemplate modules:Adres}"
+                Route="Adres" />
+
+
+        </Tab>
+    </TabBar>
+
+
+    <FlyoutItem Title="pers">
+        <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+        
+        
+        
+        
+    </FlyoutItem>
 
-    <FlyoutItem Title="pers">
+
+
+    <!--<FlyoutItem Title="pers">
         <Tab>
             <ShellContent
                 Title="Personel Liste"
@@ -28,8 +55,13 @@
 
 
         </Tab>
-    </FlyoutItem>
+
+    </FlyoutItem>-->
 
 
+
+
+
+   
 
 </Shell>
